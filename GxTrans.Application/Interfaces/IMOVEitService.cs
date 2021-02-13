@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GxTrans.Application.Interfaces
 {
-    interface IMOVEitService
+    public interface IMOVEitService
     {
     }
 }

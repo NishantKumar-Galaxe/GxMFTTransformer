@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GxTrans.Application.Interfaces
 {
-    interface IJScapeService
+    public interface IJScapeService
     {
         public void ExtractCommunity();
         public void ExtractPartner();

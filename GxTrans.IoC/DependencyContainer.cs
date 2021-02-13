@@ -2,6 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using GxTrans.Application.Services;
+using GxTrans.Application.Interfaces;
+
+
 
 namespace GxTrans.Infra.IoC
 {
@@ -9,11 +13,8 @@ namespace GxTrans.Infra.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            //Application Layer 
-            //services.AddScoped<ICourseService, CourseService>();
-
-            //Infra.Data Layer
-            //services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<IJScapeService, JScapeService>();
+            services.AddScoped<IMOVEitService, MOVEitService>();
         }
     }
 }
