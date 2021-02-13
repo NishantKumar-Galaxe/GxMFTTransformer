@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GxTrans.Application\GxTrans.Application.csproj" />
+    <ProjectReference Include="..\GxTrans.Infra.Data\GxTrans.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

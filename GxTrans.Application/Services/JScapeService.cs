@@ -1,4 +1,5 @@
 ﻿using GxTrans.Application.Interfaces;
+using GxTrans.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,12 +8,17 @@ namespace GxTrans.Application.Services
 {
     public class JScapeService : IJScapeService
     {
+        private IJScapeRepository _JScapeRepository;
+        public JScapeService(IJScapeRepository JScapeRepository)
+        {
+            _JScapeRepository = JScapeRepository;
+        }
         /// <summary>
         /// 
         /// </summary>
         public void ExtractCommunity()
         {
-            throw new NotImplementedException();
+            _JScapeRepository.ParseCommunityDetail();
         }
 
         /// <summary>
@@ -20,7 +26,7 @@ namespace GxTrans.Application.Services
         /// </summary>
         public void ExtractPartner()
         {
-            throw new NotImplementedException();
+            _JScapeRepository.ParseProducerDetail();
         }
 
         /// <summary>
@@ -28,7 +34,7 @@ namespace GxTrans.Application.Services
         /// </summary>
         public void ExtractProtocolDetail()
         {
-            throw new NotImplementedException();
+            _JScapeRepository.ParseProtocolDetail();
         }
 
         /// <summary>
@@ -37,7 +43,7 @@ namespace GxTrans.Application.Services
 
         public void ExtractRoutingDetail()
         {
-            throw new NotImplementedException();
+            _JScapeRepository.ParseRoutingTemplateDetail();
         }
     }
 }

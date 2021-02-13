@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using GxTrans.Application.Services;
 using GxTrans.Application.Interfaces;
 
-
+using GxTrans.Infra.Data.Repository;
+using GxTrans.Domain.Interfaces;
 
 namespace GxTrans.Infra.IoC
 {
@@ -15,6 +17,9 @@ namespace GxTrans.Infra.IoC
         {
             services.AddScoped<IJScapeService, JScapeService>();
             services.AddScoped<IMOVEitService, MOVEitService>();
+
+            services.AddScoped<IJScapeRepository, JScapeRepository>();
+            services.AddScoped<IMOVEitRepository, MOVEitRepository>();
         }
     }
 }

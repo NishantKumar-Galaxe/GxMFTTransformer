@@ -11,5 +11,8 @@ namespace GxTrans.Infra.Data.Context
         {
 
         }
+
+        //ToDo: Remove it, just for POC
+        public DbSet<string> GetTaskDetails { get; set; }
     }
 }
