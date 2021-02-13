@@ -15,11 +15,15 @@ namespace GxTrans.Infra.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
+            //Resolve Services
             services.AddScoped<IJScapeService, JScapeService>();
             services.AddScoped<IMOVEitService, MOVEitService>();
 
+            //Resolve Repositories
             services.AddScoped<IJScapeRepository, JScapeRepository>();
             services.AddScoped<IMOVEitRepository, MOVEitRepository>();
+
+            
         }
     }
 }

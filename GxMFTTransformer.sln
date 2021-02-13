@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GxTrans.Application", "GxTr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GxTrans.Infra.IoC", "GxTrans.IoC\GxTrans.Infra.IoC.csproj", "{7DDD5E69-2118-4484-9E5E-35758700D430}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GxTrans.Presentation", "..\GxTrans.Presentation\GxTrans.Presentation.csproj", "{0722449F-E6F6-4D02-B1A4-37BFED328B4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GxTrans.Presentation", "GxTrans.Presentation\GxTrans.Presentation.csproj", "{0722449F-E6F6-4D02-B1A4-37BFED328B4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

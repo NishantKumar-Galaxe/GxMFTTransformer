@@ -17,7 +17,7 @@ namespace GxTrans.Infra.Data.Repository
         public void ParseCommunityDetail()
         {
             //ToDo: Remove it, just for POC
-            var tasks= _dbContext.GetTaskDetails;
+            var tasks = _dbContext.GetTaskDetails;
         }
 
         public void ParseProducerDetail()

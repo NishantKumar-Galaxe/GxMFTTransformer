@@ -1,38 +1,50 @@
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GxTrans.Infra.Data.Context;
+using GxTrans.Infra.IoC;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
 
 namespace GxTrans.Presentation
 {
     static class Program
     {
+        public static IConfiguration Configuration { get; set; }
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+            configureService();
         }
 
         public static void configureService()
         {
+           
             var builder = new HostBuilder()
              .ConfigureServices((hostContext, services) =>
              {
                  services.AddSingleton<Form1>();
                  services.AddLogging(configure => configure.AddConsole());
 
-                 //services.AddScoped<IBusinessLayer, BusinessLayer>();
-                 //services.AddScoped<IDataAccessLayer, CDataAccessLayer>();
+                 services.AddDbContext<TransDBContext>(options =>
+                 {
+                     options.UseSqlServer(ConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
+                 });
+
+                 RegisterServices(services);
 
              });
 
@@ -43,7 +55,7 @@ namespace GxTrans.Presentation
                 try
                 {
                     var form1 = services.GetRequiredService<Form1>();
-                    Application.Run(form1);
+                    System.Windows.Forms.Application.Run(form1);
 
                     Console.WriteLine("Success");
                 }
@@ -52,6 +64,11 @@ namespace GxTrans.Presentation
                     Console.WriteLine("Some Error Occured");
                 }
             }
+        }
+
+        private static void RegisterServices(IServiceCollection services)
+        {
+            DependencyContainer.RegisterServices(services);
         }
     }
 }
