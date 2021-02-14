@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using GxTrans.Domain.Interfaces;
+using GxTrans.Infra.Data.Context;
 
 namespace GxTrans.Infra.Data.Repository
 {
     public class MOVEitRepository : IMOVEitRepository
     {
+        private TransDBContext _dbContext;
+        public MOVEitRepository(TransDBContext ctx)
+        {
+            _dbContext = ctx;
+        }
+
         public void ParseCommunityDetail()
         {
             throw new NotImplementedException();

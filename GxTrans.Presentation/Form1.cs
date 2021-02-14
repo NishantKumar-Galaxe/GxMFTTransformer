@@ -15,21 +15,52 @@ namespace GxTrans.Presentation
     public partial class Form1 : Form
     {
         private IJScapeService _iJScapeService;
-        public Form1(IJScapeService JScapeService)
+        private IMOVEitService _iMOVEitService;
+        public Form1(IJScapeService JScapeService, IMOVEitService MOVEitService)
         {
             InitializeComponent();
             _iJScapeService = JScapeService;
+            _iMOVEitService = MOVEitService;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnUploadConfiguration_click(object sender, EventArgs e)
         {
-           
+            openSourceConfig.InitialDirectory = @"F:\GalaxE\Project\MigrationToSFG\Document from Client\Moveit config Exports";
+            openSourceConfig.Title = "Select Source Config File";
+            openSourceConfig.FileName = "";
+            openSourceConfig.Filter = "XML File|*.xml|JSON Files|.JSON";
+
+            if (openSourceConfig.ShowDialog() == DialogResult.Cancel)
+            {
+                MessageBox.Show("Operation Cancelled");
+            }
+            else
+            {
+                lblSelectedFile.Text = openSourceConfig.FileName;
+            }
         }
 
-        private void btnJScape_Click(object sender, EventArgs e)
+        private void btnTransform_Click(object sender, EventArgs e)
         {
-            JScapeTransformer jTrans = new JScapeTransformer(_iJScapeService);
-            jTrans.Parse();
+            switch (lstSourceMFT.Text)
+            {
+                case "MOVEit":
+                    MOVEitTransformer MOVEitTrans = new MOVEitTransformer(_iMOVEitService);
+                    MOVEitTrans.Parse();
+                    MessageBox.Show("MOVEit File Sucessfully Parsed..");
+                    break;
+
+                case "JScape":
+                    JScapeTransformer jTrans = new JScapeTransformer(_iJScapeService);
+                    jTrans.Parse();
+                    MessageBox.Show("JScape File Sucessfully Parsed..");
+                    break;
+            }
+        }
+
+        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        {
+
         }
     }
 }

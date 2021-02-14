@@ -13,5 +13,25 @@ namespace GxTrans.Application.Services
         {
             _MOVEitRepository = MOVEitRepository;
         }
+
+        public void ExtractCommunity()
+        {
+          
+        }
+
+        public void ExtractPartner()
+        {
+            
+        }
+
+        public void ExtractProtocolDetail()
+        {
+           
+        }
+
+        public void ExtractRoutingDetail()
+        {
+           
+        }
     }
 }
