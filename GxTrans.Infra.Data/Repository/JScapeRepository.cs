@@ -1,7 +1,10 @@
 ﻿using GxTrans.Domain.Interfaces;
+using GxTrans.Domain.Models;
 using GxTrans.Infra.Data.Context;
+using GxTrans.Infra.Data.CustomImplementation;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace GxTrans.Infra.Data.Repository
@@ -10,29 +13,37 @@ namespace GxTrans.Infra.Data.Repository
     {
         private TransDBContext _dbContext;
 
+
         public JScapeRepository(TransDBContext ctx)
         {
             _dbContext = ctx;
         }
-        public void ParseCommunityDetail()
+
+        public JScapeUserOutput ParseCommunityDetail(JScapeUserInput userinput)
         {
             //ToDo: Remove it, just for POC
             var tasks = _dbContext.GetTaskDetails;
+            return null;
         }
 
-        public void ParseProducerDetail()
+        public JScapeUserOutput ParseProducerDetail(JScapeUserInput userinput)
         {
-            throw new NotImplementedException();
+            DataTable dtUsers = JScapeCustomMethod.ReadXML(userinput.folderPath);
+            return new JScapeUserOutput { 
+                UserDetail= dtUsers
+            };
         }
 
-        public void ParseProtocolDetail()
+        public JScapeUserOutput ParseProtocolDetail(JScapeUserInput userinput)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
-        public void ParseRoutingTemplateDetail()
+        public JScapeUserOutput ParseRoutingTemplateDetail(JScapeUserInput userinput)
         {
-            throw new NotImplementedException();
+            return null;
         }
+
+
     }
 }

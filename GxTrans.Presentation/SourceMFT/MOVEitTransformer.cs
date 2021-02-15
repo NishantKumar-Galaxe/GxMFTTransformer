@@ -15,7 +15,7 @@ namespace GxTrans.Presentation.SourceMFT
         public void Parse()
         {
             //Parse all details
-            _MOVEitService.ExtractCommunity();
+            //_MOVEitService.ExtractCommunity();
         }
     }
 }

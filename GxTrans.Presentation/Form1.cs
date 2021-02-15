@@ -25,7 +25,7 @@ namespace GxTrans.Presentation
 
         private void btnUploadConfiguration_click(object sender, EventArgs e)
         {
-            openSourceConfig.InitialDirectory = @"F:\GalaxE\Project\MigrationToSFG\Document from Client\Moveit config Exports";
+            openSourceConfig.InitialDirectory = @"E:\Nishant_Backup_Mar2020\Nishant\Project\Fiserv\Migration2SFG\Documents\Document From Client\Moveit config Exports";
             openSourceConfig.Title = "Select Source Config File";
             openSourceConfig.FileName = "";
             openSourceConfig.Filter = "XML File|*.xml|JSON Files|.JSON";

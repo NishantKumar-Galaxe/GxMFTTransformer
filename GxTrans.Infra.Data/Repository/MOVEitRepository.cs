@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using GxTrans.Domain.Interfaces;
+using GxTrans.Domain.Models;
 using GxTrans.Infra.Data.Context;
 
 namespace GxTrans.Infra.Data.Repository
@@ -14,34 +15,34 @@ namespace GxTrans.Infra.Data.Repository
             _dbContext = ctx;
         }
 
-        public void ParseCommunityDetail()
+        public MOVEitUserOutput ParseCommunityDetail(MOVEitUserInput userInput)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
-        public void ParseMacroDetail()
+        public MOVEitUserOutput ParseMacroDetail(MOVEitUserInput userInput)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
-        public void ParseProducerDetail()
+        public MOVEitUserOutput ParseProducerDetail(MOVEitUserInput userInput)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
-        public void ParseProtocolDetail()
+        public MOVEitUserOutput ParseProtocolDetail(MOVEitUserInput userInput)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
-        public void ParseRoutingTemplateDetail()
+        public MOVEitUserOutput ParseRoutingTemplateDetail(MOVEitUserInput userInput)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
-        public void ParseScriptDetail()
+        public MOVEitUserOutput ParseScriptDetail(MOVEitUserInput userInput)
         {
-            throw new NotImplementedException();
+            return null;
         }
     }
 }

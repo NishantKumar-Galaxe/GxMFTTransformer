@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using GxTrans.Domain.Interfaces;
+using GxTrans.Domain.Models;
 
 namespace GxTrans.Application.Services
 {
@@ -14,24 +15,24 @@ namespace GxTrans.Application.Services
             _MOVEitRepository = MOVEitRepository;
         }
 
-        public void ExtractCommunity()
+        public MOVEitUserOutput ExtractCommunity(MOVEitUserInput userInput)
         {
-          
+            return null;
         }
 
-        public void ExtractPartner()
+        public MOVEitUserOutput ExtractPartner(MOVEitUserInput userInput)
         {
-            
+            return null;
         }
 
-        public void ExtractProtocolDetail()
+        public MOVEitUserOutput ExtractProtocolDetail(MOVEitUserInput userInput)
         {
-           
+            return null;
         }
 
-        public void ExtractRoutingDetail()
+        public MOVEitUserOutput ExtractRoutingDetail(MOVEitUserInput userInput)
         {
-           
+            return null;
         }
     }
 }

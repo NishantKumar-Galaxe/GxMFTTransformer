@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using GxTrans.Application.Interfaces;
+using GxTrans.Domain.Models;
 
 namespace GxTrans.Presentation.SourceMFT
 {
@@ -16,7 +17,13 @@ namespace GxTrans.Presentation.SourceMFT
         public void Parse()
         {
             //Parse all details
-            _JScapeService.ExtractCommunity();
+            JScapeUserInput userInput = new JScapeUserInput
+            {
+                folderPath = @"E:\Nishant_Backup_Mar2020\Nishant\Project\Fiserv\JscapeToSFG\POC\Users\Fiserv_CUSolutions"
+            };
+
+            JScapeUserOutput output = _JScapeService.ExtractPartner(userInput);
+            
         }
     }
 }

@@ -9,9 +9,9 @@ namespace GxTrans.Domain.Interfaces
     /// </summary>
     public interface ICommonRepository
     {
-        void ParseCommunityDetail();
-        void ParseProducerDetail();
-        void ParseProtocolDetail();
-        void ParseRoutingTemplateDetail();
+        object ParseCommunityDetail(object userInput);
+        object ParseProducerDetail(object userInput);
+        object ParseProtocolDetail(object userInput);
+        object ParseRoutingTemplateDetail(object userInput);
     }
 }

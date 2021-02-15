@@ -1,7 +1,9 @@
 ﻿using GxTrans.Application.Interfaces;
 using GxTrans.Domain.Interfaces;
+using GxTrans.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace GxTrans.Application.Services
@@ -16,34 +18,37 @@ namespace GxTrans.Application.Services
         /// <summary>
         /// 
         /// </summary>
-        public void ExtractCommunity()
+        public JScapeUserOutput ExtractCommunity(JScapeUserInput userInput)
         {
-            _JScapeRepository.ParseCommunityDetail();
+            _JScapeRepository.ParseCommunityDetail(userInput);
+            return null;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public void ExtractPartner()
+        public JScapeUserOutput ExtractPartner(JScapeUserInput userInput)
         {
-            _JScapeRepository.ParseProducerDetail();
+            return _JScapeRepository.ParseProducerDetail(userInput);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public void ExtractProtocolDetail()
+        public JScapeUserOutput ExtractProtocolDetail(JScapeUserInput userInput)
         {
-            _JScapeRepository.ParseProtocolDetail();
+            _JScapeRepository.ParseProtocolDetail(userInput);
+            return null;
         }
 
         /// <summary>
         /// 
         /// </summary>
 
-        public void ExtractRoutingDetail()
+        public JScapeUserOutput ExtractRoutingDetail(JScapeUserInput userInput)
         {
-            _JScapeRepository.ParseRoutingTemplateDetail();
+            _JScapeRepository.ParseRoutingTemplateDetail(userInput);
+            return null;
         }
     }
 }
