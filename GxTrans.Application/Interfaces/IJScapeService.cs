@@ -7,10 +7,10 @@ namespace GxTrans.Application.Interfaces
 {
     public interface IJScapeService
     {
-        public JScapeUserOutput ExtractCommunity(JScapeUserInput userInput);
-        public JScapeUserOutput ExtractPartner(JScapeUserInput userInput);
-        public JScapeUserOutput ExtractRoutingDetail(JScapeUserInput userInput);
-        public JScapeUserOutput ExtractProtocolDetail(JScapeUserInput userInput);
+        public JScapeUserResponse ExtractCommunity(JScapeUserRequest userInput);
+        public JScapeUserResponse ExtractPartner(JScapeUserRequest userInput);
+        public JScapeUserResponse ExtractRoutingDetail(JScapeUserRequest userInput);
+        public JScapeUserResponse ExtractProtocolDetail(JScapeUserRequest userInput);
 
     }
 }

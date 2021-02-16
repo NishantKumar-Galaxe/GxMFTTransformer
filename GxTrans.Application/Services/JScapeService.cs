@@ -18,7 +18,7 @@ namespace GxTrans.Application.Services
         /// <summary>
         /// 
         /// </summary>
-        public JScapeUserOutput ExtractCommunity(JScapeUserInput userInput)
+        public JScapeUserResponse ExtractCommunity(JScapeUserRequest userInput)
         {
             _JScapeRepository.ParseCommunityDetail(userInput);
             return null;
@@ -27,7 +27,7 @@ namespace GxTrans.Application.Services
         /// <summary>
         /// 
         /// </summary>
-        public JScapeUserOutput ExtractPartner(JScapeUserInput userInput)
+        public JScapeUserResponse ExtractPartner(JScapeUserRequest userInput)
         {
             return _JScapeRepository.ParseProducerDetail(userInput);
         }
@@ -35,7 +35,7 @@ namespace GxTrans.Application.Services
         /// <summary>
         /// 
         /// </summary>
-        public JScapeUserOutput ExtractProtocolDetail(JScapeUserInput userInput)
+        public JScapeUserResponse ExtractProtocolDetail(JScapeUserRequest userInput)
         {
             _JScapeRepository.ParseProtocolDetail(userInput);
             return null;
@@ -45,7 +45,7 @@ namespace GxTrans.Application.Services
         /// 
         /// </summary>
 
-        public JScapeUserOutput ExtractRoutingDetail(JScapeUserInput userInput)
+        public JScapeUserResponse ExtractRoutingDetail(JScapeUserRequest userInput)
         {
             _JScapeRepository.ParseRoutingTemplateDetail(userInput);
             return null;

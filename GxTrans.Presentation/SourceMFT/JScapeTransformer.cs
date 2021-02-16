@@ -17,12 +17,12 @@ namespace GxTrans.Presentation.SourceMFT
         public void Parse()
         {
             //Parse all details
-            JScapeUserInput userInput = new JScapeUserInput
+            JScapeUserRequest userInput = new JScapeUserRequest
             {
                 folderPath = @"E:\Nishant_Backup_Mar2020\Nishant\Project\Fiserv\JscapeToSFG\POC\Users\Fiserv_CUSolutions"
             };
 
-            JScapeUserOutput output = _JScapeService.ExtractPartner(userInput);
+            JScapeUserResponse output = _JScapeService.ExtractPartner(userInput);
             
         }
     }

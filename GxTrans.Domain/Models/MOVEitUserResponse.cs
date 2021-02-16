@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GxTrans.Domain.Models
 {
-    public class MOVEitUserOutput
+    public class MOVEitUserResponse
     {
     }
 }

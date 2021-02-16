@@ -10,12 +10,12 @@ namespace GxTrans.Domain.Interfaces
     /// </summary>
     public interface IMOVEitRepository
     {
-        MOVEitUserOutput ParseCommunityDetail(MOVEitUserInput userInput);
-        MOVEitUserOutput ParseProducerDetail(MOVEitUserInput userInput);
-        MOVEitUserOutput ParseProtocolDetail(MOVEitUserInput userInput);
-        MOVEitUserOutput ParseRoutingTemplateDetail(MOVEitUserInput userInput);
+        MOVEitUserResponse ParseCommunityDetail(MOVEitUserRequest userInput);
+        MOVEitUserResponse ParseProducerDetail(MOVEitUserRequest userInput);
+        MOVEitUserResponse ParseProtocolDetail(MOVEitUserRequest userInput);
+        MOVEitUserResponse ParseRoutingTemplateDetail(MOVEitUserRequest userInput);
 
-        MOVEitUserOutput ParseScriptDetail(MOVEitUserInput userInput);
-        MOVEitUserOutput ParseMacroDetail(MOVEitUserInput userInput);
+        MOVEitUserResponse ParseScriptDetail(MOVEitUserRequest userInput);
+        MOVEitUserResponse ParseMacroDetail(MOVEitUserRequest userInput);
     }
 }

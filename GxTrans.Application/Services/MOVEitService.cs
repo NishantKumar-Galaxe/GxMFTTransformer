@@ -15,22 +15,22 @@ namespace GxTrans.Application.Services
             _MOVEitRepository = MOVEitRepository;
         }
 
-        public MOVEitUserOutput ExtractCommunity(MOVEitUserInput userInput)
+        public MOVEitUserResponse ExtractCommunity(MOVEitUserRequest userInput)
         {
             return null;
         }
 
-        public MOVEitUserOutput ExtractPartner(MOVEitUserInput userInput)
+        public MOVEitUserResponse ExtractPartner(MOVEitUserRequest userInput)
         {
             return null;
         }
 
-        public MOVEitUserOutput ExtractProtocolDetail(MOVEitUserInput userInput)
+        public MOVEitUserResponse ExtractProtocolDetail(MOVEitUserRequest userInput)
         {
             return null;
         }
 
-        public MOVEitUserOutput ExtractRoutingDetail(MOVEitUserInput userInput)
+        public MOVEitUserResponse ExtractRoutingDetail(MOVEitUserRequest userInput)
         {
             return null;
         }

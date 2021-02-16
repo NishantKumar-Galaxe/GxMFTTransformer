@@ -11,9 +11,9 @@ namespace GxTrans.Domain.Interfaces
 
     public interface IJScapeRepository
     {
-        JScapeUserOutput ParseCommunityDetail(JScapeUserInput userInput);
-        JScapeUserOutput ParseProducerDetail(JScapeUserInput userInput);
-        JScapeUserOutput ParseProtocolDetail(JScapeUserInput userInput);
-        JScapeUserOutput ParseRoutingTemplateDetail(JScapeUserInput userInput);
+        JScapeUserResponse ParseCommunityDetail(JScapeUserRequest userInput);
+        JScapeUserResponse ParseProducerDetail(JScapeUserRequest userInput);
+        JScapeUserResponse ParseProtocolDetail(JScapeUserRequest userInput);
+        JScapeUserResponse ParseRoutingTemplateDetail(JScapeUserRequest userInput);
     }
 }

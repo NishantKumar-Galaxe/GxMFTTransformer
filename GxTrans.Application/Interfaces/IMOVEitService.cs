@@ -7,9 +7,9 @@ namespace GxTrans.Application.Interfaces
 {
     public interface IMOVEitService
     {
-        public MOVEitUserOutput ExtractCommunity(MOVEitUserInput userInput);
-        public MOVEitUserOutput ExtractPartner(MOVEitUserInput userInput);
-        public MOVEitUserOutput ExtractRoutingDetail(MOVEitUserInput userInput);
-        public MOVEitUserOutput ExtractProtocolDetail(MOVEitUserInput userInput);
+        public MOVEitUserResponse ExtractCommunity(MOVEitUserRequest userInput);
+        public MOVEitUserResponse ExtractPartner(MOVEitUserRequest userInput);
+        public MOVEitUserResponse ExtractRoutingDetail(MOVEitUserRequest userInput);
+        public MOVEitUserResponse ExtractProtocolDetail(MOVEitUserRequest userInput);
     }
 }

@@ -15,32 +15,32 @@ namespace GxTrans.Infra.Data.Repository
             _dbContext = ctx;
         }
 
-        public MOVEitUserOutput ParseCommunityDetail(MOVEitUserInput userInput)
+        public MOVEitUserResponse ParseCommunityDetail(MOVEitUserRequest userInput)
         {
             return null;
         }
 
-        public MOVEitUserOutput ParseMacroDetail(MOVEitUserInput userInput)
+        public MOVEitUserResponse ParseMacroDetail(MOVEitUserRequest userInput)
         {
             return null;
         }
 
-        public MOVEitUserOutput ParseProducerDetail(MOVEitUserInput userInput)
+        public MOVEitUserResponse ParseProducerDetail(MOVEitUserRequest userInput)
         {
             return null;
         }
 
-        public MOVEitUserOutput ParseProtocolDetail(MOVEitUserInput userInput)
+        public MOVEitUserResponse ParseProtocolDetail(MOVEitUserRequest userInput)
         {
             return null;
         }
 
-        public MOVEitUserOutput ParseRoutingTemplateDetail(MOVEitUserInput userInput)
+        public MOVEitUserResponse ParseRoutingTemplateDetail(MOVEitUserRequest userInput)
         {
             return null;
         }
 
-        public MOVEitUserOutput ParseScriptDetail(MOVEitUserInput userInput)
+        public MOVEitUserResponse ParseScriptDetail(MOVEitUserRequest userInput)
         {
             return null;
         }

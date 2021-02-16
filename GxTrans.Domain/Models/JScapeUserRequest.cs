@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GxTrans.Domain.Models
 {
-    public class JScapeUserInput
+    public class JScapeUserRequest
     {
         public string folderPath { get; set; }
     }

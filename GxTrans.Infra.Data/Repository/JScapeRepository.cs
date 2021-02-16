@@ -19,27 +19,27 @@ namespace GxTrans.Infra.Data.Repository
             _dbContext = ctx;
         }
 
-        public JScapeUserOutput ParseCommunityDetail(JScapeUserInput userinput)
+        public JScapeUserResponse ParseCommunityDetail(JScapeUserRequest userinput)
         {
             //ToDo: Remove it, just for POC
             var tasks = _dbContext.GetTaskDetails;
             return null;
         }
 
-        public JScapeUserOutput ParseProducerDetail(JScapeUserInput userinput)
+        public JScapeUserResponse ParseProducerDetail(JScapeUserRequest userinput)
         {
             DataTable dtUsers = JScapeCustomMethod.ReadXML(userinput.folderPath);
-            return new JScapeUserOutput { 
+            return new JScapeUserResponse { 
                 UserDetail= dtUsers
             };
         }
 
-        public JScapeUserOutput ParseProtocolDetail(JScapeUserInput userinput)
+        public JScapeUserResponse ParseProtocolDetail(JScapeUserRequest userinput)
         {
             return null;
         }
 
-        public JScapeUserOutput ParseRoutingTemplateDetail(JScapeUserInput userinput)
+        public JScapeUserResponse ParseRoutingTemplateDetail(JScapeUserRequest userinput)
         {
             return null;
         }
