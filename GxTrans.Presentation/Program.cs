@@ -21,7 +21,7 @@ namespace GxTrans.Presentation
         /// <summary>
         ///  The main entry point for the application N.
         /// </summary>
-        [STAThread]
+        [STAThread]  
         static void Main()
         {
             System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);
