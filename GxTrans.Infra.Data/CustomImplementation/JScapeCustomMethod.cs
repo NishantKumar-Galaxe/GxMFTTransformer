@@ -8,6 +8,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using System.Configuration;
+using System.Windows.Forms;
+using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace GxTrans.Infra.Data.CustomImplementation
 {
@@ -158,6 +162,80 @@ namespace GxTrans.Infra.Data.CustomImplementation
                 table.Rows.Add(row);
             }
             return table;
+        }
+
+        public static void SaveExceltoDB(string excelPath)
+        {
+            //Provide the table name in which you want to load excel sheet's data
+            String TableName = @"SFG_StandardizationData";
+            //Provide the schema of table
+            String SchemaName = @"dbo";
+
+            string conString = string.Empty;
+            string extension = Path.GetExtension(excelPath);
+
+            switch (extension.ToLower())
+            {
+                case ".xls": //Excel 97-03
+                    conString = ConfigurationManager.ConnectionStrings["Excel03ConString"].ConnectionString;
+                    break;
+                case ".xlsx": //Excel 07 or higher
+                    conString = ConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
+                    break;
+
+            }
+            conString = string.Format(conString, excelPath);
+            using (OleDbConnection Conn = new OleDbConnection(conString))
+            {
+
+                //Get data from Excel Sheet to DataTable
+                Conn.Open();
+                string SheetName = Conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null).Rows[0]["TABLE_NAME"].ToString();
+                OleDbCommand oconn = new OleDbCommand("select * from [" + SheetName + "]", Conn);
+                OleDbDataAdapter adp = new OleDbDataAdapter(oconn);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                Conn.Close();
+
+                using (SqlConnection connection = new SqlConnection((ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString)))
+                {
+                    connection.Open();
+                    //Load Data from DataTable to SQL Server Table.
+                    using (SqlBulkCopy BC = new SqlBulkCopy(connection))
+                    {
+                        //-------------Validation each cells start--------------------//
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dt.Columns.Count; j++)
+                            {
+                                if (!(dt.Columns[j].ColumnName == "ProtocolMethodInbound") || (dt.Columns[j].ColumnName == "PGPPartnerKey"))
+                                {
+                                    if (string.IsNullOrEmpty(dt.Rows[i][j].ToString()))
+                                    {
+                                        DialogResult dialog = new DialogResult();
+                                        dialog = MessageBox.Show("You need to fill up this Cell.", "Alert!", MessageBoxButtons.YesNo);
+                                        if (dialog == DialogResult.Yes)
+                                        {
+                                            Application.Exit();
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                        //-------------Validation each cells end--------------------//
+
+                        BC.DestinationTableName = SchemaName + "." + TableName;
+                        foreach (var column in dt.Columns)
+                        {
+                            BC.ColumnMappings.Add(column.ToString(), column.ToString());
+                        }
+                        BC.WriteToServer(dt);
+
+                    }
+                    connection.Close();
+                }
+            }
         }
     }
 }
